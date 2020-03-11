@@ -1,0 +1,180 @@
+/////////
+//
+// This geometry file is for the single detector AtlasPix that is being used for AstroPix development.
+// All the simulations use the MEGAlib toolkit (http://megalibtoolkit.com).
+// The detector is 25 x 400 pixels.
+// Each pixel is 130 um x 40 um x 100 um (x y z).
+// Edited by Isabella Brewer Feb 11, 2020
+//
+/////////
+
+SurroundingSphere 100.0 0.0 0.0 0.0 100.0
+Include $MEGALIB/resource/examples/geomega/materials/Materials.geo
+Include AstroPix_base_prop.det
+
+// Make one large mother volume for the whole board
+Volume Board
+Board.Material Vacuum
+Board.Virtual true
+Board.Visibility 0
+Board.Shape BRIK 10.0 10.0 10.0
+Board.Mother 0
+
+// Create an empty section of 10 layered chunks of 10 chunks of 4 rows each (400 rows total, that's all folks!)
+Volume 400Rows
+400Rows.Shape BRIK 0.16262 0.801995 0.005
+400Rows.Material Vacuum
+400Rows.Virtual true
+400Rows.Visibility 0
+400Rows.Position 0.0 0.0 0.0
+400Rows.Mother Board
+
+// Create an empty section of 10 layered chunks of 4 rows each (40 rows total).
+Volume 40Rows
+40Rows.Shape BRIK 0.16262 0.080195 0.005
+40Rows.Material Vacuum
+40Rows.Virtual true
+40Rows.Visibility 0
+// Stack 10 sections of 10 sections comprised of 4 rows each (making 400 stacked rows).
+40Rows.Copy Stack1
+Stack1.Position 0.0 -0.7218 0.0
+Stack1.Mother 400Rows
+40Rows.Copy Stack2
+Stack2.Position 0.0 -0.5614 0.0
+Stack2.Mother 400Rows
+40Rows.Copy Stack3
+Stack3.Position 0.0 -0.401 0.0
+Stack3.Mother 400Rows
+40Rows.Copy Stack4
+Stack4.Position 0.0 -0.2406 0.0
+Stack4.Mother 400Rows
+40Rows.Copy Stack5
+Stack5.Position 0.0 -0.0802 0.0
+Stack5.Mother 400Rows
+40Rows.Copy Stack6
+Stack6.Position 0.0 0.0802 0.0
+Stack6.Mother 400Rows
+40Rows.Copy Stack7
+Stack7.Position 0.0 0.2406 0.0
+Stack7.Mother 400Rows
+40Rows.Copy Stack8
+Stack8.Position 0.0 0.401 0.0
+Stack8.Mother 400Rows
+40Rows.Copy Stack9
+Stack9.Position 0.0 0.5614 0.0
+Stack9.Mother 400Rows
+40Rows.Copy Stack10
+Stack10.Position 0.0 0.7218 0.0
+Stack10.Mother 400Rows
+
+// Create a section of 4 rows stacked on top of one another.
+Volume 4Rows
+4Rows.Shape BRIK 0.16262 0.008015 0.005
+4Rows.Material Vacuum
+4Rows.Virtual true
+4Rows.Visibility 0
+// Stack 10 sections comprised of 4 rows each (making 40 stacked rows).
+4Rows.Copy Chunk1
+Chunk1.Position 0.0 -0.07218 0.0
+Chunk1.Mother 40Rows
+4Rows.Copy Chunk2
+Chunk2.Position 0.0 -0.05614 0.0
+Chunk2.Mother 40Rows
+4Rows.Copy Chunk3
+Chunk3.Position 0.0 -0.0401 0.0
+Chunk3.Mother 40Rows
+4Rows.Copy Chunk4
+Chunk4.Position 0.0 -0.02406 0.0
+Chunk4.Mother 40Rows
+4Rows.Copy Chunk5
+Chunk5.Position 0.0 -0.00802 0.0
+Chunk5.Mother 40Rows
+4Rows.Copy Chunk6
+Chunk6.Position 0.0 0.00802 0.0
+Chunk6.Mother 40Rows
+4Rows.Copy Chunk7
+Chunk7.Position 0.0 0.02406 0.0
+Chunk7.Mother 40Rows
+4Rows.Copy Chunk8
+Chunk8.Position 0.0 0.0401 0.0
+Chunk8.Mother 40Rows
+4Rows.Copy Chunk9
+Chunk9.Position 0.0 0.05614 0.0
+Chunk9.Mother 40Rows
+4Rows.Copy Chunk10
+Chunk10.Position 0.0 0.07218 0.0
+Chunk10.Mother 40Rows
+
+// Create a strip of 25 pixels (one full row).
+Volume 25UnitStrip
+25UnitStrip.Shape BRIK 0.16262 0.002 0.005
+25UnitStrip.Material Vacuum
+25UnitStrip.Virtual true
+25UnitStrip.Visibility 0
+// Stack 4 rows together.
+25UnitStrip.Copy Row1
+Row1.Position 0.0 -0.006015 0.0
+Row1.Mother 4Rows
+25UnitStrip.Copy Row2
+Row2.Position 0.0 -0.002005 0.0
+Row2.Mother 4Rows
+25UnitStrip.Copy Row3
+Row3.Position 0.0 0.002005 0.0
+Row3.Mother 4Rows
+25UnitStrip.Copy Row4
+Row4.Position 0.0 0.006015 0.0
+Row4.Mother 4Rows
+
+
+// Create a section of 5 pixels.
+Volume 5UnitStrip
+5UnitStrip.Shape BRIK 0.03252 0.002 0.005
+5UnitStrip.Material Vacuum
+5UnitStrip.Virtual true
+5UnitStrip.Visibility 0
+// Populate the 25 unit strip with 5 sections containing 5 pixels each.
+5UnitStrip.Copy Section1
+Section1.Position -0.1301 0.0 0.0
+Section1.Mother 25UnitStrip
+5UnitStrip.Copy Section2
+Section2.Position -0.06505 0.0 0.0
+Section2.Mother 25UnitStrip
+5UnitStrip.Copy Section3
+Section3.Position 0.0 0.0 0.0
+Section3.Mother 25UnitStrip
+5UnitStrip.Copy Section4
+Section4.Position 0.06505 0.0 0.0
+Section4.Mother 25UnitStrip
+5UnitStrip.Copy Section5
+Section5.Position 0.1301 0.0 0.0
+Section5.Mother 25UnitStrip
+
+// Define pixel volume
+Volume Pixel
+Pixel.Shape BRIK 0.0065 0.002 0.005
+Pixel.Material Silicon
+Pixel.Visibility 1
+// Populate the 5 unit strip with pixels.
+Pixel.Copy Unit1
+Unit1.Position -0.02602 0.0 0.0
+Unit1.Mother 5UnitStrip
+Pixel.Copy Unit2
+Unit2.Position -0.01301 0.0 0.0
+Unit2.Mother 5UnitStrip
+Pixel.Copy Unit3
+Unit3.Position 0.0 0.0 0.0
+Unit3.Mother 5UnitStrip
+Pixel.Copy Unit4
+Unit4.Position 0.01301 0.0 0.0
+Unit4.Mother 5UnitStrip
+Pixel.Copy Unit5
+Unit5.Position 0.02602 0.0 0.0
+Unit5.Mother 5UnitStrip
+
+// Base Trigger
+Trigger Trg_SiPix1Cal1
+Trg_SiPix1Cal1.Veto false
+Trg_SiPix1Cal1.TriggerByDetector true
+Trg_SiPix1Cal1.Detector DSiPix 1
+// Trg_SiPix1Cal1.Detector DCal 1
+ 

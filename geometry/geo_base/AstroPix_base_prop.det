@@ -1,0 +1,32 @@
+//Define Tracker and Mother Volume
+Voxel3D	DSiPix
+DSiPix.SensitiveVolume PixelSheet
+DSiPix.DetectorVolume PixelSheet
+
+DSiPix.StructuralPitch 0. 0. 0.
+DSiPix.StructuralOffset 0. 0. 0.
+
+DSiPix.NoiseThreshold   4.9
+DSiPix.TriggerThreshold   5.5
+
+DSiPix.Offset      0  0  0
+DSiPix.VoxelNumber 25 400 1
+
+DSiPix.EnergyResolution Gauss 9.4288 9.4288 0.4760
+DSiPix.EnergyResolution Gauss 15.6308 15.6308 0.4153 
+DSiPix.EnergyResolution Gauss 17.9610 17.9610 0.4347
+DSiPix.EnergyResolution Gauss 21.2915 21.2915 0.408
+
+//Define Calorimeter and Mother Volume
+//Voxel3D   DCal
+//DCal.SensitiveVolume CZT_Cal
+//DCal.DetectorVolume CZT_Cal
+
+//DCal.Offset      0  0  0
+//DCal.VoxelNumber 10000 10000 300
+
+//DCal.NoiseThreshold   10 
+//DCal.TriggerThreshold   20
+
+//DCal.EnergyResolution Gauss   662    662   1
+//DCal.EnergyResolution Gauss   122    122   0.8

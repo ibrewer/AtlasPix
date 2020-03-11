@@ -1,0 +1,64 @@
+\\ ************************************
+\\ *   Source file for Cadmium 109    *
+\\ *   Created by Isabella Brewer     *
+\\ *        February 12, 2020         *
+\\ ************************************
+
+
+Version          2 
+Geometry         /Users/isabellabrewer/astropix/AtlasPix/geometry/geo_base/AtlasPix.geo.setup
+BlackAbsorber    CutOut
+
+//--------------------------------------------------------//
+PhysicsListEM    LivermorePol
+StoreCalibrate                    true
+StoreSimulationInfo               true
+StoreOnlyEventsWithEnergyLoss     true 
+DiscretizeHits                    true
+
+
+//--------------------------------------------------------//
+Run                                    CdRun
+CdRun.FileName            			   different_noise_6
+CdRun.Triggers              		   100000
+
+//--------------3 keV line, 27% probability---------------//
+CdRun.Source 		        CdSource3Line
+CdSource3Line.Flux 		    9990000.0 
+CdSource3Line.ParticleType  1 
+CdSource3Line.Spectrum      Mono  3.00
+CdSource3Line.Beam   	    PointSource 0.0 -0.4 1.6
+CdSource3Line.Polarization  Random
+
+//-----------21.9906 keV line, 30% probability------------//
+CdRun.Source 		         CdSource21Line
+CdSource21Line.Flux 		 11100000.0 
+CdSource21Line.ParticleType  1 
+CdSource21Line.Spectrum      Mono  21.9906
+CdSource21Line.Beam   	     PointSource 0.0 -0.4 1.6
+CdSource21Line.Polarization  Random
+
+//-----------22.16317 keV line, 5% probability------------//
+CdRun.Source 		         CdSource22Line
+CdSource22Line.Flux 		 1850000.0
+CdSource22Line.ParticleType  1 
+CdSource22Line.Spectrum      Mono  22.16317
+CdSource22Line.Beam   	     PointSource 0.0 -0.4 1.6
+CdSource22Line.Polarization  Random
+
+//-----------24.9427 keV line, 20% probability------------//
+CdRun.Source 		         CdSource24Line
+CdSource24Line.Flux 		 7400000.0
+CdSource24Line.ParticleType  1 
+CdSource24Line.Spectrum      Mono  24.9427
+CdSource24Line.Beam   	     PointSource 0.0 -0.4 1.6
+CdSource24Line.Polarization  Random
+
+//--------------25.4567 keV line, 10% probability---------------//
+CdRun.Source 		         CdSource25Line
+CdSource25Line.Flux 		 3700000.0
+CdSource25Line.ParticleType  1 
+CdSource25Line.Spectrum      Mono  25.4567 
+CdSource25Line.Beam   	     PointSource 0.0 -0.4 1.6
+CdSource25Line.Polarization  Random
+
