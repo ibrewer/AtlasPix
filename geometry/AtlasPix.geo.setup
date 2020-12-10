@@ -1,0 +1,209 @@
+/////////
+// ****************************************************************************
+// *      This geometry file is for the single detector AtlasPix              *
+// *          that is being used for AstroPix development.                    *
+// * All the simulations use the MEGAlib toolkit (http://megalibtoolkit.com). *
+// *                   The detector is 25 x 400 pixels.                                           *
+// *             Each pixel is 130 um x 40 um x 100 um (x y z).                           *
+// *               Edited by Isabella Brewer Feb 19, 2020                                         *
+// ****************************************************************************
+/////////
+
+SurroundingSphere 100.0 0.0 0.0 0.0 100.0
+Include $MEGALIB/resource/examples/geomega/materials/Materials.geo
+//Include AstroPix_base_prop.det
+
+
+// Make one large mother volume for the whole board
+Volume Board
+Board.Material Vacuum
+Board.Virtual true
+Board.Visibility 0
+Board.Shape BRIK 100.0 100.0 100.0
+Board.Mother 0
+
+// Create a single layer
+Volume PixelSheet
+//PixelSheet.Shape BRIK 0.16362 0.806495 0.005
+PixelSheet.Shape BRIK 0.16362 0.8095 0.005
+PixelSheet.Material Silicon
+//PixelSheet.Virtual true
+PixelSheet.Visibility 0
+PixelSheet.Position 0.0 0.0 0.0
+PixelSheet.Mother Board
+
+// Create the top chunk
+Volume Chunk1
+Chunk1.Shape BRIK 0.16262 0.20049875 0.005
+Chunk1.Material Silicon
+Chunk1.Visibility 1
+//Chunk1.Position 0.0 0.61 0.0
+Chunk1.Position 0.0 0.60899625 0.0
+//Chunk1.Position 0.0 0.60449625 0.0
+Chunk1.Mother PixelSheet
+
+// Create the next chunk down
+Volume Chunk2
+Chunk2.Shape BRIK 0.16262 0.20049875 0.005
+Chunk2.Material Silicon
+Chunk2.Visibility 1
+Chunk2.Position 0.0 0.20299875 0.0
+//Chunk2.Position 0.0 0.20249875 0.0
+//Chunk2.Position 0.0 0.4 0.0
+Chunk2.Mother PixelSheet
+
+// Create the next chunk down
+Volume Chunk3
+Chunk3.Shape BRIK 0.16262 0.20049875 0.005
+Chunk3.Material Silicon
+Chunk3.Visibility 1
+Chunk3.Position 0.0 -0.20299875 0.0
+//Chunk3.Position 0.0 -0.20249875 0.0
+//Chunk3.Position 0.0 -0.4 0.0
+Chunk3.Mother PixelSheet
+
+// Create the next chunk down
+Volume Chunk4
+Chunk4.Shape BRIK 0.16262 0.20049875 0.005
+Chunk4.Material Silicon
+Chunk4.Visibility 1
+//Chunk4.Position 0.0 -0.61 0.0
+Chunk4.Position 0.0 -0.60899625 0.0
+
+// Define Detector Characteristics
+Voxel3D DSiPix1
+DSiPix1.SensitiveVolume Chunk1
+DSiPix1.DetectorVolume Chunk1
+
+DSiPix1.StructuralPitch 0. 0. 0.
+DSiPix1.StructuralOffset 0. 0. 0.
+
+DSiPix1.NoiseThreshold    4.0
+DSiPix1.TriggerThreshold  4.0
+
+DSiPix1.Offset      0  0  0
+DSiPix1.VoxelNumber 25 100 1
+DSiPix1.FailureRate 0.01
+
+//DSiPix1.EnergyResolution Gauss 5.889 3.8552 0.538771
+//DSiPix1.EnergyResolution Gauss 9.25184 9.8779 0.495967
+//DSiPix1.EnergyResolution Gauss 14.958 16.9869 0.472865
+//DSiPix1.EnergyResolution Gauss 17.479 19.6619 0.466820
+//DSiPix1.EnergyResolution Gauss 21.9906 23.4793 0.459589
+//DSiPix1.EnergyResolution Gauss 30.9731 27.9486 0.452597
+
+DSiPix1.EnergyResolution Gauss 9.25184 8.8884 0.366912
+DSiPix1.EnergyResolution Gauss 14.958 14.9001 0.49001
+DSiPix1.EnergyResolution Gauss 17.479 17.9880 0.554039
+DSiPix1.EnergyResolution Gauss 21.9906 23.1687 0.642389
+DSiPix1.EnergyResolution Gauss 30.9731 30.4194 0.753227
+
+//
+Voxel3D DSiPix2
+DSiPix2.SensitiveVolume Chunk2
+DSiPix2.DetectorVolume Chunk2
+
+DSiPix2.StructuralPitch 0. 0. 0.
+DSiPix2.StructuralOffset 0. 0. 0.
+
+DSiPix2.NoiseThreshold   4.0
+DSiPix2.TriggerThreshold  4.0
+
+DSiPix2.Offset      0  0  0
+DSiPix2.VoxelNumber 25 100 1
+DSiPix2.FailureRate 0.01
+
+//DSiPix2.EnergyResolution Gauss 5.889 3.8552 0.538771
+//DSiPix2.EnergyResolution Gauss 9.25184 9.8779 0.495967
+//DSiPix2.EnergyResolution Gauss 14.958 16.9869 0.472865
+//DSiPix2.EnergyResolution Gauss 17.479 19.6619 0.466820
+//DSiPix2.EnergyResolution Gauss 21.9906 23.4793 0.459589
+//DSiPix2.EnergyResolution Gauss 30.9731 27.9486 0.452597
+
+DSiPix2.EnergyResolution Gauss 9.25184 8.8884 0.366912
+DSiPix2.EnergyResolution Gauss 14.958 14.9001 0.49001
+DSiPix2.EnergyResolution Gauss 17.479 17.9880 0.554039
+DSiPix2.EnergyResolution Gauss 21.9906 23.1687 0.642389
+DSiPix2.EnergyResolution Gauss 30.9731 30.4194 0.753227
+
+//
+Voxel3D DSiPix3
+DSiPix3.SensitiveVolume Chunk3
+DSiPix3.DetectorVolume Chunk3
+
+DSiPix3.StructuralPitch 0. 0. 0.
+DSiPix3.StructuralOffset 0. 0. 0.
+
+DSiPix3.NoiseThreshold   4.0
+DSiPix3.TriggerThreshold   4.0
+
+DSiPix3.Offset      0  0  0
+DSiPix3.VoxelNumber 25 100 1
+DSiPix3.FailureRate 0.01
+
+
+//DSiPix3.EnergyResolution Gauss 5.889 3.8552 0.538771
+//DSiPix3.EnergyResolution Gauss 9.25184 9.8779 0.495967
+//DSiPix3.EnergyResolution Gauss 14.958 16.9869 0.472865
+//DSiPix3.EnergyResolution Gauss 17.479 19.6619 0.466820
+//DSiPix3.EnergyResolution Gauss 21.9906 23.4793 0.459589
+//DSiPix3.EnergyResolution Gauss 30.9731 27.9486 0.452597
+
+DSiPix3.EnergyResolution Gauss 9.25184 8.8884 0.366912
+DSiPix3.EnergyResolution Gauss 14.958 14.9001 0.49001
+DSiPix3.EnergyResolution Gauss 17.479 17.9880 0.554039
+DSiPix3.EnergyResolution Gauss 21.9906 23.1687 0.642389
+DSiPix3.EnergyResolution Gauss 30.9731 30.4194 0.753227
+
+//
+Voxel3D DSiPix4
+DSiPix4.SensitiveVolume Chunk4
+DSiPix4.DetectorVolume Chunk4
+
+DSiPix4.StructuralPitch 0. 0. 0.
+DSiPix4.StructuralOffset 0. 0. 0.
+
+DSiPix4.NoiseThreshold   3.0
+DSiPix4.TriggerThreshold   4.0
+
+DSiPix4.Offset      0  0  0
+DSiPix4.VoxelNumber 25 100 1
+DSiPix1.FailureRate 0.01
+
+//DSiPix4.EnergyResolution Gauss 5.889 3.8552 0.538771
+//DSiPix4.EnergyResolution Gauss 9.25184 9.8779 0.495967
+//DSiPix4.EnergyResolution Gauss 14.958 16.9869 0.472865
+//DSiPix4.EnergyResolution Gauss 17.479 19.6619 0.466820
+//DSiPix4.EnergyResolution Gauss 21.9906 23.4793 0.459589
+//DSiPix4.EnergyResolution Gauss 30.9731 27.9486 0.452597
+
+DSiPix4.EnergyResolution Gauss 9.25184 8.8884 0.366912
+DSiPix4.EnergyResolution Gauss 14.958 14.9001 0.49001
+DSiPix4.EnergyResolution Gauss 17.479 17.9880 0.554039
+DSiPix4.EnergyResolution Gauss 21.9906 23.1687 0.642389
+DSiPix4.EnergyResolution Gauss 30.9731 30.4194 0.753227
+
+// Base Trigger 1
+Trigger Trg_SiPix1
+Trg_SiPix1.Veto false
+Trg_SiPix1.TriggerByDetector true
+Trg_SiPix1.Detector DSiPix1 1
+
+// Base Trigger 2
+Trigger Trg_SiPix2
+Trg_SiPix2.Veto false
+Trg_SiPix2.TriggerByDetector true
+Trg_SiPix2.Detector DSiPix2 1
+
+// Base Trigger 3
+Trigger Trg_SiPix3
+Trg_SiPix3.Veto false
+Trg_SiPix3.TriggerByDetector true
+Trg_SiPix3.Detector DSiPix3 1
+
+// Base Trigger 4
+Trigger Trg_SiPix4
+Trg_SiPix4.Veto false
+Trg_SiPix4.TriggerByDetector true
+Trg_SiPix4.Detector DSiPix4 1
+
