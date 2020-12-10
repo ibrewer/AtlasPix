@@ -1,0 +1,10 @@
+To run simulations for ATLASPix:
+
+$ cosima <source_file.source> %This will output a sim file, <something.sim>
+$ revan -f <something.sim> -g <geometry_file.geo.setup> -c <config_file.cfg>
+
+And you're done!
+
+Notes: Make sure you include the paths to all files. The config file I currently use is revan_atlaspix.cfg, the geometry file I use is AtlasPix.geo.setup. Cosmia outputs a sim file of "perfect" photon hits based on your detector geometry and source file for each radioactive source. Revan applies detector smearing/alters the simulation file to more accurately reflect detector behavior (ex. applies energy resolution, noise).
+
+To analyze the .sim or .tra files (.tra are from Revan), I use SimFileNavigator.ipynb and RevanFileNavigator.ipynb.
