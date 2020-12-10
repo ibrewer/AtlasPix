@@ -1,0 +1,107 @@
+\ ************************************
+\\ *   Source file for Y (X ray tube) *
+\\ *   Created by Isabella Brewer     *
+\\ *           June 11, 2020          *
+\\ ************************************
+
+
+Version          2
+Geometry         /data/slag2/AstroPix/AtlasPix/geometry/geo_base/AtlasPix.geo.setup
+//BlackAbsorber    CutOut
+
+//--------------------------------------------------------//
+PhysicsListEM    LivermorePol
+StoreCalibrate                    true
+StoreSimulationInfo               true
+StoreOnlyEventsWithEnergyLoss     true
+DiscretizeHits                    true
+
+
+//--------------------------------------------------------//
+Run                                    YRun
+YRun.FileName                          y_test_og_1
+YRun.Triggers                          100000
+
+
+//----------------- Instrumentation Noise------------------//
+YRun.Source                     YNoise
+YNoise.Flux                     2000000000.0
+YNoise.ParticleType             1
+YNoise.Spectrum                 Linear 1.0 18.0
+YNoise.Beam                     PointSource 0.0 0.0 3.0
+YNoise.Polarization             Random
+
+//-------------- ~2 keV line, 0.343% probability---------------//
+YRun.Source                     YSource2Line
+YSource2Line.Flux               126910
+YSource2Line.ParticleType       1
+YSource2Line.Spectrum           Mono  1.99
+YSource2Line.Beam               HomogeneousBeam 0.0 0.0 25.0 0.0 0.0 -1.0 0.5
+YSource2Line.Polarization       Random
+
+//----------- 14.883 keV line, 2.02% probability ------------//
+YRun.Source                      YSource14Line1
+YSource14Line1.Flux              747400
+YSource14Line1.ParticleType      1
+YSource14Line1.Spectrum          Mono  14.883
+YSource14Line1.Beam              HomogeneousBeam 0.0 0.0 25.0 0.0 0.0 -1.0 0.5
+YSource14Line1.Polarization      Random
+
+//----------- 14.9581 keV line, 3.88% probability ------------//
+YRun.Source                      YSource14Line2
+YSource14Line2.Flux              1435600
+YSource14Line2.ParticleType      1
+YSource14Line2.Spectrum          Mono  14.9581
+YSource14Line2.Beam              HomogeneousBeam 0.0 0.0 25.0 0.0 0.0 -1.0 0.5
+YSource14Line2.Polarization      Random
+
+//----------- 16.7268 keV line, 0.24325% probability ------------//
+YRun.Source                       YSource16Line1
+YSource16Line1.Flux               90002.5
+YSource16Line1.ParticleType       1
+YSource16Line1.Spectrum           Mono 16.7268
+YSource16Line1.Beam               HomogeneousBeam 0.0 0.0 25.0 0.0 0.0 -1.0 0.5
+YSource16Line1.Polarization       Random
+
+//----------- 16.7384 keV line, 0.24325% probability ------------//
+YRun.Source                       YSource16Line2
+YSource16Line2.Flux               90002.5
+YSource16Line2.ParticleType       1
+YSource16Line2.Spectrum           Mono 16.7384
+YSource16Line2.Beam               HomogeneousBeam 0.0 0.0 25.0 0.0 0.0 -1.0 0.5
+YSource16Line2.Polarization       Random
+
+//----------- 16.8792 keV line, 0.24325% probability ------------//
+YRun.Source                       YSource16Line3
+YSource16Line3.Flux               90002.5
+YSource16Line3.ParticleType       1
+YSource16Line3.Spectrum           Mono 16.8792
+YSource16Line3.Beam               HomogeneousBeam 0.0 0.0 25.0 0.0 0.0 -1.0 0.5
+YSource16Line3.Polarization       Random
+
+//----------- 16.8814 keV line, 0.24325% probability ------------//
+YRun.Source                       YSource16Line4
+YSource16Line4.Flux               90002.5
+YSource16Line4.ParticleType       1
+YSource16Line4.Spectrum           Mono 16.8814
+YSource16Line4.Beam               HomogeneousBeam 0.0 0.0 25.0 0.0 0.0 -1.0 0.5
+YSource16Line4.Polarization       Random
+
+//----------- 17.0137 keV line, .067% probability ------------//
+YRun.Source                      YSource17Line1
+YSource17Line1.Flux              24790
+YSource17Line1.ParticleType      1
+YSource17Line1.Spectrum          Mono  17.0137
+YSource17Line1.Beam              HomogeneousBeam 0.0 0.0 25.0 0.0 0.0 -1.0 0.5
+YSource17Line1.Polarization      Random
+
+//----------- 17.0409 keV line, .067% probability ------------//
+YRun.Source                      YSource17Line2
+YSource17Line2.Flux              24790
+YSource17Line2.ParticleType      1
+YSource17Line2.Spectrum          Mono  17.0409
+YSource17Line2.Beam              HomogeneousBeam 0.0 0.0 25.0 0.0 0.0 -1.0 0.5
+YSource17Line2.Polarization      Random
+
+//-----------------------------------------------------------//
+

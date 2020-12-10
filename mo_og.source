@@ -1,0 +1,75 @@
+\ ************************************
+\\ *  Source file for Mo (X ray tube) *
+\\ *   Created by Isabella Brewer     *
+\\ *           May 12, 2020           *
+\\ ************************************
+
+
+Version          2
+Geometry         /data/slag2/AstroPix/AtlasPix/geometry/geo_base/AtlasPix.geo.setup
+//BlackAbsorber    CutOut
+
+//--------------------------------------------------------//
+PhysicsListEM    LivermorePol
+StoreCalibrate                    true
+StoreSimulationInfo               true
+StoreOnlyEventsWithEnergyLoss     true
+DiscretizeHits                    true
+
+
+//--------------------------------------------------------//
+Run                                     MoRun
+MoRun.FileName                          mo_og_test_1
+MoRun.Triggers                          10000
+
+
+//----------------- Instrumentation Noise------------------//
+MoRun.Source                     MoNoise
+MoNoise.Flux                     50000000000.0
+MoNoise.ParticleType             1
+MoNoise.Spectrum                 Linear 1.0 22.0
+MoNoise.Beam                     PointSource 0.0 0.0 3.0
+MoNoise.Polarization             Random
+
+//-------------- 2.5 keV line, 17% probability --------------//
+MoRun.Source                      MoSource2line
+MoSource2line.Flux                6290000
+MoSource2line.ParticleType        1
+MoSource2line.Spectrum            Mono  2.5
+MoSource2line.Beam                HomogeneousBeam 0.0 0.0 25.0 0.0 0.0 -1.0 0.5
+MoSource2line.Polarization        Random
+
+//------------- 18.251 keV line, 9% probability ------------//
+MoRun.Source                      MoSource18Line1
+MoSource18Line1.Flux              3330000
+MoSource18Line1.ParticleType      1
+MoSource18Line1.Spectrum          Mono  18.251
+MoSource18Line1.Beam              HomogeneousBeam 0.0 0.0 25.0 0.0 0.0 -1.0 0.5
+MoSource18Line1.Polarization      Random
+
+//----------- 18.3672 keV line, 16% probability  -----------//
+MoRun.Source                      MoSource18Line2
+MoSource18Line2.Flux              5920000
+MoSource18Line2.ParticleType      1
+MoSource18Line2.Spectrum          Mono  18.3672
+MoSource18Line2.Beam              HomogeneousBeam 0.0 0.0 25.0 0.0 0.0 -1.0 0.5
+MoSource18Line2.Polarization      Random
+
+//----------- 20.619 keV line, 5% probability  -------------//
+MoRun.Source                      MoSource20Line1
+MoSource20Line1.Flux              1850000
+MoSource20Line1.ParticleType      1
+MoSource20Line1.Spectrum          Mono  20.619
+MoSource20Line1.Beam              HomogeneousBeam 0.0 0.0 25.0 0.0 0.0 -1.0 0.5
+MoSource20Line1.Polarization      Random
+
+//-----------  21.01 keV line, 11% probability  -----------//
+MoRun.Source                      MoSource20Line2
+MoSource20Line2.Flux              4070000
+MoSource20Line2.ParticleType      1
+MoSource20Line2.Spectrum          Mono  21.01
+MoSource20Line2.Beam              HomogeneousBeam 0.0 0.0 25.0 0.0 0.0 -1.0 0.5
+MoSource20Line2.Polarization      Random
+
+//-------------------------------------------------------//
+

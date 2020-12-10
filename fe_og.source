@@ -1,0 +1,66 @@
+\\ ************************************
+\\ * Source file for Fe (point source)*
+\\ *   Created by Isabella Brewer     *
+\\ *        August 5, 2020            *
+\\ ************************************
+
+
+Version          2
+Geometry         /data/slag2/AstroPix/AtlasPix/geometry/geo_base/AtlasPix.geo.setup
+//BlackAbsorber    CutOut
+
+//--------------------------------------------------------//
+PhysicsListEM    LivermorePol
+StoreCalibrate                    true
+StoreSimulationInfo               true
+StoreOnlyEventsWithEnergyLoss     true
+DiscretizeHits                    true
+
+
+//--------------------------------------------------------//
+Run                                     FeRun
+FeRun.FileName                          ge_og_mult_new_1
+FeRun.Triggers                          10000
+
+
+//----------------- Instrumentation Noise------------------//
+FeRun.Source                     FeNoise
+FeNoise.Flux                     5000000.0
+FeNoise.ParticleType             1
+FeNoise.Spectrum                 Linear 1.0 12.0
+FeNoise.Beam                     PointSource 0.0 0.0 3.0
+FeNoise.Polarization             Random
+
+//------------- 5.88765 keV line, 8.45% probability ------------//
+FeRun.Source                      FeSource5line1
+FeSource5line1.Flux               3126500
+FeSource5line1.ParticleType       1
+FeSource5line1.Spectrum           Mono  5.88765
+FeSource5line1.Beam               PointSource 0.0 -0.4 1.6
+FeSource5line1.Polarization       Random
+
+//------------- 5.89875 keV line, 16.57% probability  -----------//
+FeRun.Source                      FeSource5line2
+FeSource5line2.Flux               6130900
+FeSource5line2.ParticleType       1
+FeSource5line2.Spectrum           Mono  5.89875
+FeSource5line2.Beam               PointSource 0.0 -0.4 1.6
+FeSource5line2.Polarization       Random
+
+//----------- 6.49045 keV line, 3.40% probability  ------------//
+FeRun.Source                       FeSource6line1
+FeSource6line1.Flux                1258000
+FeSource6line1.ParticleType        1
+FeSource6line1.Spectrum            Mono  6.49045 
+FeSource6line1.Beam                PointSource 0.0 -0.4 1.6
+FeSource6line1.Polarization        Random
+
+//----------- 6.5352 keV line, 3.40% probability  ------------//
+FeRun.Source                       FeSource6line2
+FeSource6line2.Flux                1258000
+FeSource6line2.ParticleType        1
+FeSource6line2.Spectrum            Mono  6.5352 
+FeSource6line2.Beam                PointSource 0.0 -0.4 1.6
+FeSource6line2.Polarization        Random
+
+//-------------------------------------------------------//

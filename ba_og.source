@@ -1,0 +1,106 @@
+\ ************************************
+\\ *      Source file for Ba133       *
+\\ *   Created by Isabella Brewer     *
+\\ *          June 11, 2020           *
+\\ ************************************
+
+
+Version          2
+Geometry         /data/slag2/AstroPix/AtlasPix/geometry/geo_base/AtlasPix.geo.setup
+//BlackAbsorber    CutOut
+
+//--------------------------------------------------------//
+PhysicsListEM    LivermorePol
+StoreCalibrate                    true
+StoreSimulationInfo               true
+StoreOnlyEventsWithEnergyLoss     true
+DiscretizeHits                    true
+
+
+//--------------------------------------------------------//
+Run                                     BaRun
+BaRun.FileName                          ba_og_test_1
+BaRun.Triggers                          10000
+
+
+//----------------- Instrumentation Noise------------------//
+BaRun.Source                     BaNoise
+BaNoise.Flux                     50000000000.0
+BaNoise.ParticleType             1
+BaNoise.Spectrum                 Linear 1.0 28.0
+BaNoise.Beam                     PointSource 0.0 0.0 3.0
+BaNoise.Polarization             Random
+
+//-------------- ~4 keV line, 15.87% probability --------------//
+BaRun.Source                      BaSource4line
+BaSource4line.Flux                5871900
+BaSource4line.ParticleType        1
+BaSource4line.Spectrum            Mono  4
+BaSource4line.Beam                PointSource 0.0 -0.4 1.6
+BaSource4line.Polarization        Random
+
+//------------- 30.6254 keV line, 4% probability ------------//
+BaRun.Source                      BaSource30line1
+BaSource30line1.Flux              12506000
+BaSource30line1.ParticleType      1
+BaSource30line1.Spectrum          Mono  30.6254
+BaSource30line1.Beam              PointSource 0.0 -0.4 1.6
+BaSource30line1.Polarization      Random
+
+//------------- 30.9731 keV line, 7% probability  -----------//
+BaRun.Source                      BaSource30line2
+BaSource30line2.Flux              23088000
+BaSource30line2.ParticleType      1
+BaSource30line2.Spectrum          Mono  30.9731
+BaSource30line2.Beam              PointSource 0.0 -0.4 1.6
+BaSource30line2.Polarization      Random
+
+//----------- 34.9197 keV line, 6.08% probability  ------------//
+BaRun.Source                       BaSource34line1
+BaSource34line1.Flux               2249600
+BaSource34line1.ParticleType       1
+BaSource34line1.Spectrum           Mono  34.9197
+BaSource34line1.Beam               PointSource 0.0 -0.4 1.6
+BaSource34line1.Polarization       Random
+
+//----------- 34.9873 keV line, 6.08% probability  ------------//
+BaRun.Source                       BaSource34line2
+BaSource34line2.Flux               2249600
+BaSource34line2.ParticleType       1
+BaSource34line2.Spectrum           Mono  34.9873
+BaSource34line2.Beam               PointSource 0.0 -0.4 1.6
+BaSource34line2.Polarization       Random
+
+//----------- 35.252 keV line, 6.08% probability  ------------//
+BaRun.Source                       BaSource35line1
+BaSource35line1.Flux               2249600
+BaSource35line1.ParticleType       1
+BaSource35line1.Spectrum           Mono  35.252
+BaSource35line1.Beam               PointSource 0.0 -0.4 1.6
+BaSource35line1.Polarization       Random
+
+//------------ 35.822 keV line, 1.48% probability  -----------//
+BaRun.Source                       BaSource35line2
+BaSource35line2.Flux               548833.33
+BaSource35line2.ParticleType       1
+BaSource35line2.Spectrum           Mono 35.822 
+BaSource35line2.Beam               PointSource 0.0 -0.4 1.6
+BaSource35line2.Polarization       Random
+
+//------------ 35.907 keV line, 1.48% probability  -----------//
+BaRun.Source                       BaSource35line3
+BaSource35line3.Flux               548833.33
+BaSource35line3.ParticleType       1
+BaSource35line3.Spectrum           Mono  35.907
+BaSource35line3.Beam               PointSource 0.0 -0.4 1.6
+BaSource35line3.Polarization       Random
+
+//------------ 35.972 keV line, 1.48% probability  -----------//
+BaRun.Source                       BaSource35line4
+BaSource35line4.Flux               548833.33
+BaSource35line4.ParticleType       1
+BaSource35line4.Spectrum           Mono  35.972
+BaSource35line4.Beam               PointSource 0.0 -0.4 1.6
+BaSource35line4.Polarization       Random
+
+//-------------------------------------------------------//

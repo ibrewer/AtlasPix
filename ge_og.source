@@ -1,0 +1,66 @@
+\\ ************************************
+\\ *  Source file for Ge (X ray tube) *
+\\ *   Created by Isabella Brewer     *
+\\ *           May 1, 2020            *
+\\ ************************************
+
+
+Version          2
+Geometry         /data/slag2/AstroPix/AtlasPix/geometry/geo_base/AtlasPix.geo.setup
+//BlackAbsorber    CutOut
+
+//--------------------------------------------------------//
+PhysicsListEM    LivermorePol
+StoreCalibrate                    true
+StoreSimulationInfo               true
+StoreOnlyEventsWithEnergyLoss     true
+DiscretizeHits                    true
+
+
+//--------------------------------------------------------//
+Run                                     GeRun
+GeRun.FileName                          ge_og_test_1
+GeRun.Triggers                          10000
+
+
+//----------------- Instrumentation Noise------------------//
+GeRun.Source                     GeNoise
+GeNoise.Flux                     50000000000.0
+GeNoise.ParticleType             1
+GeNoise.Spectrum                 Linear 1.0 12.0
+GeNoise.Beam                     PointSource 0.0 0.0 3.0
+GeNoise.Polarization             Random
+
+//----------- 9.22495 keV line, 15% probability ------------//
+GeRun.Source                     GeSource9Line1
+GeSource9Line1.Flux               555000000
+GeSource9Line1.ParticleType       1
+GeSource9Line1.Spectrum           Mono  9.22495
+GeSource9Line1.Beam               HomogeneousBeam 0.0 0.0 25.0 0.0 0.0 -1.0 0.5
+GeSource9Line1.Polarization       Random
+
+//----------- 9.25184 keV line, 26% probability ------------//
+GeRun.Source                     GeSource9Line2
+GeSource9Line2.Flux              600000000
+GeSource9Line2.ParticleType      1
+GeSource9Line2.Spectrum          Mono  9.25184
+GeSource9Line2.Beam              HomogeneousBeam 0.0 0.0 25.0 0.0 0.0 -1.0 0.5
+GeSource9Line2.Polarization      Random
+
+//----------- 10.2644 keV line, 8% probability  ------------//
+GeRun.Source                      GeSource10Line1
+GeSource10Line1.Flux              296000000
+GeSource10Line1.ParticleType      1
+GeSource10Line1.Spectrum          Mono  10.2644
+GeSource10Line1.Beam              HomogeneousBeam 0.0 0.0 25.0 0.0 0.0 -1.0 0.5
+GeSource10Line1.Polarization      Random
+
+//----------- 10.3664 keV line, 9% probability  ------------//
+GeRun.Source                      GeSource10Line2
+GeSource10Line2.Flux              333000000
+GeSource10Line2.ParticleType      1
+GeSource10Line2.Spectrum          Mono  10.3664
+GeSource10Line2.Beam              HomogeneousBeam 0.0 0.0 25.0 0.0 0.0 -1.0 0.5
+GeSource10Line2.Polarization      Random
+
+//-------------------------------------------------------//
